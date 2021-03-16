@@ -2,9 +2,9 @@
 {
     public class Item
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public int quality { get; set; }
-        public int sellIn { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Quality { get; set; }
+        public int SellIn { get; set; }
     }
 }

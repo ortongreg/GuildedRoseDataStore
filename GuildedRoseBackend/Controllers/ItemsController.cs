@@ -14,9 +14,9 @@ namespace GuildedRoseBackend.Controllers
 
         private readonly ILogger<ItemsController> _logger;
 
-        private Item[] _allItems = new Item[] {
-                new Item { id = 1, name = "Foo", quality = 10, sellIn = 11 },
-                new Item { id = 2, name = "Bar", quality = 12, sellIn = 13 },
+        private readonly Item[] _allItems = new Item[] {
+                new Item { ID = 1, Name = "Foo", Quality = 10, SellIn = 11 },
+                new Item { ID = 2, Name = "Bar", Quality = 12, SellIn = 13 },
             };
 
         public ItemsController(ILogger<ItemsController> logger)
@@ -30,6 +30,6 @@ namespace GuildedRoseBackend.Controllers
 
         // GET items/1
         [HttpGet("{id}")]
-        public Item GetQuery(string id) => _allItems.First(item => item.id == Int32.Parse(id));
+        public Item GetQuery(string id) => _allItems.First(item => item.ID == Int32.Parse(id));
     }
 }
