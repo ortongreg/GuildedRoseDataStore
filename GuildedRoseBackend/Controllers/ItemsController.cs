@@ -1,4 +1,5 @@
-﻿using GuildedRoseBackend.Models;
+﻿using GuildedRoseBackend.DAL;
+using GuildedRoseBackend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,25 +12,23 @@ namespace GuildedRoseBackend.Controllers
     [Route("[controller]")]
     public class ItemsController : ControllerBase
     {
-
+        private readonly ItemContext _itemContext;
         private readonly ILogger<ItemsController> _logger;
 
-        private readonly Item[] _allItems = new Item[] {
-                new Item { ID = 1, Name = "Foo", Quality = 10, SellIn = 11 },
-                new Item { ID = 2, Name = "Bar", Quality = 12, SellIn = 13 },
-            };
-
-        public ItemsController(ILogger<ItemsController> logger)
-        {
+        public ItemsController(ItemContext itemContext, ILogger<ItemsController> logger)
+        {    
+            itemContext.Database.EnsureCreated();
+            
+            _itemContext = itemContext;
             _logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<Item> Get() => _allItems;
+        public IEnumerable<Item> Get() => _itemContext.Items;
 
 
         // GET items/1
         [HttpGet("{id}")]
-        public Item GetQuery(string id) => _allItems.First(item => item.ID == Int32.Parse(id));
+        public Item GetQuery(string id) => _itemContext.Items.First(item => item.ID == Int32.Parse(id));
     }
 }
