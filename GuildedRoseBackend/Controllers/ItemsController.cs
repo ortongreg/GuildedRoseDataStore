@@ -28,7 +28,10 @@ namespace GuildedRoseBackend.Controllers
 
 
         // GET items/1
-        [HttpGet("{id}")]
+        [HttpGet("item/{id}")]
         public Item GetQuery(string id) => _itemContext.Items.First(item => item.ID == Int32.Parse(id));
+
+        [HttpGet("add")]
+        public void AddItem() => _itemContext.AddItem();
     }
 }

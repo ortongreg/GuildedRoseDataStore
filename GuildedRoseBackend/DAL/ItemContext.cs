@@ -12,6 +12,12 @@ namespace GuildedRoseBackend.DAL
         public DbSet<Item> Items { get; set; }
 
 
+        public void AddItem()
+        {
+            Items.Add(new Item { Name = "Foo", Quality = 14, SellIn = 13 });
+            this.SaveChanges();
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Item>().HasData(
