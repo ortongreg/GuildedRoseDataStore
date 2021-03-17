@@ -1,5 +1,8 @@
 using FluentAssertions;
 using GuildedRoseBackend.Controllers;
+using GuildedRoseBackend.DAL;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 
 namespace GuildedRoseBackendTests
@@ -11,14 +14,20 @@ namespace GuildedRoseBackendTests
         [SetUp]
         public void Setup()
         {
-            _controller = new ItemsController(null);
+            DbContextOptions<ItemContext> dbContextOptions = new DbContextOptionsBuilder<ItemContext>()
+                .UseInMemoryDatabase(databaseName: "TestDb")
+                .Options;
+
+
+
+            _controller = new ItemsController(new ItemContext(dbContextOptions), null);
         }
 
         [Test]
         public void GetSingleItemShouldReturnItemWithThatId()
         {
             var resultItem = _controller.GetQuery("1");
-            resultItem.id.Should().Be(1);
+            resultItem.ID.Should().Be(1);
         }
     }
 }
