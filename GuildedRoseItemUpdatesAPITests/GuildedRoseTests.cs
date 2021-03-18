@@ -134,19 +134,8 @@ namespace GuildedRoseItemUpdatesAPITests
             GildedRose app = new GildedRose(Items);
             app.UpdateQuality();
             Assert.AreEqual(10, Items[0].SellIn);
-            Assert.AreEqual(10, Items[0].Quality);
-        }
-
-        /*
-        [Test]
-        public void testSulfurasDoesNotUpdateSellInAndQualityIsEighty()
-        {
-            IList<Item> Items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 10 } };
-            GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
-            Assert.AreEqual(10, Items[0].SellIn);
             Assert.AreEqual(80, Items[0].Quality);
-        }*/
+        }
 
         /*
     func testConjuredDecreaseQualityByTwo(){

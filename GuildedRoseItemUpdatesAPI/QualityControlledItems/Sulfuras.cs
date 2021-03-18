@@ -5,6 +5,6 @@
 
         public Sulfuras(Item item): base(item) { }
 
-        public override void UpdateItem() { }
+        public override void UpdateItem() => item.Quality = 80;
     }
 }
