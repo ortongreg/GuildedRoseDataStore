@@ -24,7 +24,7 @@ namespace GuildedRoseBackendTests.EndToEndTests
         {
             _server = new TestServer(new WebHostBuilder()
                 .UseStartup<Startup>());
-                _client = _server.CreateClient();
+            _client = _server.CreateClient();
         }
 
         [Test]
@@ -36,8 +36,8 @@ namespace GuildedRoseBackendTests.EndToEndTests
 
             List<Item> responseItems = JsonConvert.DeserializeObject<List<Item>>(responseString);
 
-            responseItems.Count.Should().Be(2);
-            responseItems[0].id.Should().Be(1);
+            responseItems.Count.Should().Be(9);
+            responseItems[0].ID.Should().Be(1);
         }
     }
 }
