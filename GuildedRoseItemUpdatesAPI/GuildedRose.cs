@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
+﻿using System.Collections.Generic;
 namespace GuildedRoseItemUpdatesAPI
 {
     public class GildedRose
@@ -29,6 +25,9 @@ namespace GuildedRoseItemUpdatesAPI
                         break;
                     case "Sulfuras, Hand of Ragnaros":
                         qcItem = new Sulfuras(item);
+                        break;
+                    case "Conjured":
+                        qcItem = new Conjured(item);
                         break;
                     default:
                         qcItem = new RegularItem(item);

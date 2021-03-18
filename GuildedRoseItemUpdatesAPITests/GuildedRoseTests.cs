@@ -137,24 +137,24 @@ namespace GuildedRoseItemUpdatesAPITests
             Assert.AreEqual(80, Items[0].Quality);
         }
 
-        /*
-    func testConjuredDecreaseQualityByTwo(){
-        let items = [Item(name: "Conjured", sellIn: 1, quality: 10)]
-        let app = GildedRose(items: items);
-    
-        app.updateQuality();
-        XCTAssertEqual(0, app.items[0].sellIn);
-        XCTAssertEqual(8, app.items[0].quality);
-    }
-    
-    func testConjuredItemQualityNeverDropsBelowZero() {
-        let items = [Item(name: "Conjured", sellIn: 1, quality: 1)]
-        let app = GildedRose(items: items);
-    
-        app.updateQuality();
-        XCTAssertEqual(0, app.items[0].sellIn);
-        XCTAssertEqual(0, app.items[0].quality);
-    }
-         */
+        [Test]
+        public void testConjuredDecreaseQualityByTwo()
+        {
+            IList<Item> Items = new List<Item> { new Item { Name = "Conjured", SellIn = 1, Quality = 10 } };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.AreEqual(0, Items[0].SellIn);
+            Assert.AreEqual(8, Items[0].Quality);
+        }
+
+        [Test]
+        public void testConjuredItemQualityNeverDropsBelowZero()
+        {
+            IList<Item> Items = new List<Item> { new Item { Name = "Conjured", SellIn = 1, Quality = 1 } };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.AreEqual(0, Items[0].SellIn);
+            Assert.AreEqual(0, Items[0].Quality);
+        }
     }
 }
