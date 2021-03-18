@@ -5,7 +5,7 @@
 
         public AgedBrie(Item item): base(item) { }
 
-        public void UpdateItem(){
+        public override void UpdateItem(){
             if (item.Quality < 50)
             {
                 item.Quality = item.Quality + 1;

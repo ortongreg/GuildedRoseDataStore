@@ -5,7 +5,7 @@
 
         public BackstagePass(Item item): base(item) { }
 
-        public void UpdateItem()
+        public override void UpdateItem()
         {
             if (item.Quality < 50)
             {

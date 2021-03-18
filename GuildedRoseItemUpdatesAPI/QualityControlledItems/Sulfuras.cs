@@ -5,6 +5,6 @@
 
         public Sulfuras(Item item): base(item) { }
 
-        public void UpdateItem() { }
+        public override void UpdateItem() { }
     }
 }

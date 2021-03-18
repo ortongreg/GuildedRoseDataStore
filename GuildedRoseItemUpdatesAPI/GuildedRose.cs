@@ -17,23 +17,24 @@ namespace GuildedRoseItemUpdatesAPI
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                
                 Item item = Items[i];
+                QualityControlledItem qcItem;
                 switch (item.Name)
                 {
                     case "Aged Brie":
-                        new AgedBrie(item).UpdateItem();
+                        qcItem = new AgedBrie(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
-                        new BackstagePass(item).UpdateItem();
+                        qcItem = new BackstagePass(item);
                         break;
                     case "Sulfuras, Hand of Ragnaros":
-                        new Sulfuras(item).UpdateItem();
+                        qcItem = new Sulfuras(item);
                         break;
-                    default: 
-                        new QualityControlledItem(item).UpdateItem();
+                    default:
+                        qcItem = new RegularItem(item);
                         break;
                 }
+                qcItem.UpdateItem();
 
             }
         }
