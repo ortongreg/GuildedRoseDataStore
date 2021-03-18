@@ -27,6 +27,9 @@ namespace GuildedRoseItemUpdatesAPI
                     case "Backstage passes to a TAFKAL80ETC concert":
                         new BackstagePass(item).UpdateItem();
                         break;
+                    case "Sulfuras, Hand of Ragnaros":
+                        new Sulfuras(item).UpdateItem();
+                        break;
                     default: 
                         new QualityControlledItem(item).UpdateItem();
                         break;

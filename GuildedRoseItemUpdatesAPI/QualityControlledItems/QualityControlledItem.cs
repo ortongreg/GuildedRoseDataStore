@@ -16,34 +16,20 @@ namespace GuildedRoseItemUpdatesAPI
 
         public void UpdateItem()
         {
-
-            if (item.Name == "Sulfuras, Hand of Ragnaros")
+            if (item.Quality > 0)
             {
-                UpdateSulfuras(item);
+                item.Quality = item.Quality - 1;
             }
 
-            else
+            item.SellIn = item.SellIn - 1;
+
+            if (item.SellIn < 0)
             {
                 if (item.Quality > 0)
                 {
                     item.Quality = item.Quality - 1;
                 }
-
-                item.SellIn = item.SellIn - 1;
-
-                if (item.SellIn < 0)
-                {
-                    if (item.Quality > 0)
-                    {
-                        item.Quality = item.Quality - 1;
-                    }
-                }
-
             }
-        }
-
-        private static void UpdateSulfuras(Item item)
-        {
         }
     }
 }
