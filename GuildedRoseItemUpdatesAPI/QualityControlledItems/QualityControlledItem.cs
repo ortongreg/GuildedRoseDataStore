@@ -7,7 +7,7 @@ namespace GuildedRoseItemUpdatesAPI
 {
     public class QualityControlledItem
     {
-        private readonly Item item;
+        internal readonly Item item;
 
         public QualityControlledItem(Item item)
         {

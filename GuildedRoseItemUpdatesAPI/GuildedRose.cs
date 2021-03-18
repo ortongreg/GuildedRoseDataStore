@@ -17,8 +17,19 @@ namespace GuildedRoseItemUpdatesAPI
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                QualityControlledItem item = new QualityControlledItem(Items[i]);
-                item.UpdateItem();
+                QualityControlledItem qcItem;
+                Item item = Items[i];
+                switch (item.Name)
+                {
+                    case "Aged Brie":
+                        qcItem = new AgedBrie(item);
+                        break;
+                    default: 
+                        qcItem = new QualityControlledItem(item);
+                        break;
+                }
+
+                qcItem.UpdateItem();
             }
         }
     }
