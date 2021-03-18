@@ -17,19 +17,21 @@ namespace GuildedRoseItemUpdatesAPI
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                QualityControlledItem qcItem;
+                
                 Item item = Items[i];
                 switch (item.Name)
                 {
                     case "Aged Brie":
-                        qcItem = new AgedBrie(item);
+                        new AgedBrie(item).UpdateItem();
+                        break;
+                    case "Backstage passes to a TAFKAL80ETC concert":
+                        new BackstagePass(item).UpdateItem();
                         break;
                     default: 
-                        qcItem = new QualityControlledItem(item);
+                        new QualityControlledItem(item).UpdateItem();
                         break;
                 }
 
-                qcItem.UpdateItem();
             }
         }
     }
